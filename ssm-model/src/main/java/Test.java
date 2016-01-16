@@ -13,10 +13,10 @@ public class Test {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		
-		AccountService as = (AccountService) context.getBean("accountService");
+		/*AccountService as = (AccountService) context.getBean("accountService");
 		
 		as.save();
-		
+		*/
 		
 		/*AccountDao ad = (AccountDao) context.getBean("accountDao");
 		
