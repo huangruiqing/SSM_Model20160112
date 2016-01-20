@@ -1,18 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>首页</title>
-	<link rel="stylesheet" href="/static/css/default.css" />
-	<style>
-		h3{
-			color:red;
-			
-		}
-	</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-	<h2>springmvc hello</h2>
-	<h3>hhhhhh</h3>
+
 </body>
 </html>
