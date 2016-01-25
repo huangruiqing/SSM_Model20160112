@@ -1,6 +1,14 @@
 package com.dev.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import com.dev.entity.Account;
+
 public interface AccountMapper {
 
-	public void findById();
+	public Account findById(long l);
+	public void update(Account ac);
+	public List<Account> findAll();
+	public Account like(Map<String,String> map);
 }

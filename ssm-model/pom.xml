@@ -118,6 +118,11 @@
 		
 	<!-- mysql end -->
 	
+	<!-- logs start-->
+	
+	<!-- logs end -->	
+	
+	
   </dependencies>
   <build>
     <finalName>ssm-model</finalName>
