@@ -14,19 +14,19 @@ import com.dev.entity.Account;
 public class MybatisTest {
 
 	public static void main(String[] args) throws IOException {
-		//1 ¶ÁÈ¡ÅäÖÃÎÄ¼þmybatis.xml
+		//1 ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½mybatis.xml
 		Reader reader = Resources.getResourceAsReader("mybatis.xml");
 		
-		//´´½¨SqlSessionFactory 
+		//ï¿½ï¿½ï¿½ï¿½SqlSessionFactory 
 		SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
-		// ´´½¨SqlSession¶ÔÏó
+		// ï¿½ï¿½ï¿½ï¿½SqlSessionï¿½ï¿½ï¿½ï¿½
 		SqlSession ss = ssf.openSession();
-		//Êý¾Ý²Ù×÷
+		//ï¿½ï¿½Ý²ï¿½ï¿½ï¿½
 		
 		Account ac = ss.selectOne("com.dev.dao.AccountMapper.findById",1); 
 		
 		System.out.println("name: "+ac.getUserName());
-		//¹Ø±Õ
+		//ï¿½Ø±ï¿½
 		ss.close();
 	}
 }
