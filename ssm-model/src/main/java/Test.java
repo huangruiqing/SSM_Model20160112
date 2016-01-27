@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.dev.dao.AccountDao;
 import com.dev.entity.Account;
 import com.dev.service.AccountService;
+import org.springframework.web.context.ContextLoaderListener;;
 
 
 public class Test {
