@@ -14,15 +14,15 @@
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="com.dev">
-    	<context:exclude-filter type="annotation" expression="com.dev.controller"/>
+    	<context:exclude-filter type="annotation" 
+    		expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!-- 读取ClassPath中的properties配置文件 -->
     <context:property-placeholder location="classpath:db.properties"/>
 
     <!-- 配置DBCP数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-                                                destroy-method="close">
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
