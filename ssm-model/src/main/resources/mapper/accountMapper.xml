@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dev.dao.AccountMapper">
+    
+    <select id="findById" parameterType="long" resultType="Account">
+    	select * from t_user where id=#{id} 
+    </select>
+    <update id="update" parameterType="Account">
+    	update t_user set address = #{address} where id = ${id}
+    </update>
+    <select id="findAll" resultType="list" resultMap="accountMap">
+    	select * from t_user
+    </select>
+    <resultMap id="accountMap" type="Account">
+    	<id property="id" column="id"/>
+    	<result property="userName" column="userName"/>
+    	<result property="password" column="password"/>
+    	<result property="tel" column="tel"/>
+    	<result property="address" column="address"/>
+    	
+    </resultMap>
+    
+    <select id="like"  parameterType="map" resultType="account">
+    	select * from t_user where userName like '%${userName}%'
+    </select>
+    <insert id="save" parameterType="Account" useGeneratedKeys="true" keyProperty="id">
+    	insert into t_user (userName,password,tel,address) values(#{userName},#{password},#{tel},#{address})
+    </insert>
+    
+</mapper>
