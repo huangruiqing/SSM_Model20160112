@@ -12,7 +12,6 @@
 	</style>
 </head>
 <body>
-	<h2>springmvc hello</h2>
-	<h3>hhhhhh</h3>
+
 </body>
 </html>
