@@ -23,7 +23,10 @@
     </resultMap>
     
     <select id="like"  parameterType="map" resultType="account">
-    	select * from t_user where userName like ${userName}
+    	select * from t_user where userName like '%${userName}%'
     </select>
+    <insert id="save" parameterType="Account" useGeneratedKeys="true" keyProperty="id">
+    	insert into t_user (userName,password,tel,address) values(#{userName},#{password},#{tel},#{address})
+    </insert>
     
 </mapper>

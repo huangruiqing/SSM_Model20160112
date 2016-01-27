@@ -11,4 +11,5 @@ public interface AccountMapper {
 	public void update(Account ac);
 	public List<Account> findAll();
 	public Account like(Map<String,String> map);
+	public void save(Account ac);
 }
