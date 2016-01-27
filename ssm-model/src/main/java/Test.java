@@ -13,6 +13,11 @@ public class Test {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		
+		AccountService as = (AccountService) context.getBean("accountService");
+		Account ac = as.findById(1l);
+		System.out.println(ac.getAddress());
+		
+		
 		/*AccountService as = (AccountService) context.getBean("accountService");
 		
 		as.save();

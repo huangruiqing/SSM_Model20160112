@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 
-<servlet>  
-    <servlet-name>VerifyCodeServlet</servlet-name>  
-    <servlet-class>Servlet.ValidateCodeServlet</servlet-class>  
-    <init-param>  
-        <param-name>width</param-name>  
-        <param-value>120</param-value>  
-    </init-param>  
-    <init-param>  
-        <param-name>height</param-name>  
-        <param-value>32</param-value>  
-    </init-param>  
-    <init-param>  
-        <param-name>codeCount</param-name>  
-        <param-value>4</param-value>  
-    </init-param>  
-</servlet>  
-<servlet-mapping>  
-    <servlet-name>VerifyCodeServlet</servlet-name>  
-    <url-pattern>/code</url-pattern>  
-</servlet-mapping>  
 
 
 
@@ -28,7 +8,7 @@
 
 
 <!--Spring MVC中央控制器  -->
-<servlet>
+<!-- <servlet>
 	<servlet-name>mvc</servlet-name>
 	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	<load-on-startup>1</load-on-startup>
@@ -36,7 +16,7 @@
 <servlet-mapping>
 	<servlet-name>mvc</servlet-name>
 	<url-pattern>/</url-pattern>
-</servlet-mapping>
+</servlet-mapping> -->
 
 <!--加载Spring 容器  -->
 

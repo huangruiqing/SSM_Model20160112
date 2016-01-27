@@ -2,14 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:aop="http://www.springframework.org/schema/aop"
-     xmlns:context="http://www.springframework.org/schema/context"
-     xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop 
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
         
@@ -17,16 +20,33 @@
    <aop:aspectj-autoproxy/>  
    <!--自动扫描  -->
    <context:component-scan base-package="com.dev">
-   	<context:exclude-filter type="annotation" expression="com.dev.controller"/>
+   	<!-- <context:exclude-filter type="annotation" expression="com.dev.controller"/> -->
    </context:component-scan>  
    
-   
-   <!-- 数据源的配置 -->
-   
-   
+   <!--读取classpath中的配置文件db.properties  -->
+   <context:property-placeholder location="classpath:db.properties"/>
+   <!-- 数据源的配置dbcp -->
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+   		<property name="driverClassName" value="${jdbc.driver}"/>
+   		<property name="username" value="${jdbc.username}"/>
+   		<property name="password" value="${jdbc.password}"/>
+   		<property name=" maxActive" value="10"/>
+   		<property name=" maxWait" value="300000"/><!-- 5分钟 -->
+   		 
+   </bean>
+   <!--整合mybatis  -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+   		<property name="dataSource" ref="datasource"/>
+   		<property name="typeAliasesPackage" value="com.dev.entity"/>
+   		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
+   </bean>
    
    <!--基于注解事务的配置  --> 
-   <tx:annotation-driven transaction-manager="transactionManager"/>
+   <!-- <tx:annotation-driven transaction-manager="transactionManager"/> -->
   
+   <!-- 自动扫描dao包中的Mapper接口，并放入Spring容器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.kaishengit.dao"/>
+    </bean>     
         
 </beans>

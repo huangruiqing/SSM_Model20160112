@@ -91,6 +91,12 @@
 		<artifactId>commons-io</artifactId>
 		<version>${commons-io.vserion}</version>
 	</dependency>
+	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>1.4</version>
+	</dependency>
+	
 	<!-- commons end -->
 	
 	<!-- mybatis start -->
@@ -108,6 +114,7 @@
 	
 	
 	<!-- mybatis end -->
+	
 	<!-- mysql start -->
 	<dependency>
 		<groupId>mysql</groupId>
@@ -137,8 +144,12 @@
 	</dependency>
 	
 	
-	
 	<!-- logs end -->	
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+	</dependency>
 	
 	
   </dependencies>
