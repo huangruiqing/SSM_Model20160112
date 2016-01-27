@@ -13,18 +13,15 @@ public class AccountService {
 	@Inject
 	private AccountMapper accountMapper;
 	
-	
+	public void save(Account ac){
+		accountMapper.save(ac);
+		
+	}
 	public Account findById(Long id) {
 		return accountMapper.findById(id);
 	}
-	
-	/*private AccountDao ad ;
-	
-	public void save() {
-		ad.save();
+	public Account findByName(String userName) {
+		return accountMapper.findByName(userName);
 	}
 	
-	public void setAccountDao(AccountDao ad) {// setע��
-		this.ad = ad;
-	}*/
 }

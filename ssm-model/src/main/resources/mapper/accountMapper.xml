@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dev.dao.AccountMapper">
     
+    <select id="findByName" parameterType="string" resultType="Account">
+    	select u.userName u.password,u.tel,u.address from t_user u where u.userName = #{userName} 
+    </select>
+    
+    
     <select id="findById" parameterType="long" resultType="Account">
     	select * from t_user where id=#{id} 
     </select>

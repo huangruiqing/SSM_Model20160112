@@ -12,4 +12,5 @@ public interface AccountMapper {
 	public List<Account> findAll();
 	public Account like(Map<String,String> map);
 	public void save(Account ac);
+	public Account findByName(String userName);
 }

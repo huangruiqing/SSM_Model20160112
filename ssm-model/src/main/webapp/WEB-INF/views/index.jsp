@@ -11,7 +11,7 @@
 		<jsp:param value="index" name="meau"/>
 	</jsp:include>
 
-helloff
+hhhhh:${message}
 
 </body>
 </html>

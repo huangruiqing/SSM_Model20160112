@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,14 +43,24 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right right1">
 					<li>
-						<a href="javascript:;" data-toggle="modal" data-target="#loginModal">
-							<i class="fa fa-user"></i>  登录
-						</a>
+						<c:if test="${sessionScope.login eq 'true' }">
+							<a href="javascript:;">
+								<i class="fa fa-user"></i>${sessionScope.userName}
+							</a>
+						</c:if>
+						<c:if test="${empty sessionScope.login }">
+							<a href="javascript:;" data-toggle="modal" data-target="#loginModal">
+								<i class="fa fa-user"></i>  登录
+							</a>
+						</c:if>
 					</li>
 					<li>
-						<a href="javascript:;" data-toggle="modal" data-target="#registModal">
-							<i class="fa fa-edit"></i>  注册
-						</a>
+						<c:if test="${empty sessionScope.login }">
+							<a href="javascript:;" data-toggle="modal" data-target="#registModal">
+								<i class="fa fa-edit"></i>  注册
+							</a>
+						</c:if>
+						
 					</li>
 				</ul>
 				</div><!-- navbar-collapse-->
@@ -65,7 +76,7 @@
 		        <h4 class="modal-title" id="myModalLabel"> <i class="fa fa-sign-in"></i> 登录</h4>
 		      </div>
 		      <div class="modal-body">
-		        <form action="" class="form-horizontal" method="post" id="loginForm">
+		        <form action="/login" class="form-horizontal" method="post" id="loginForm">
 		        	<div class="form-group">
 		        		<label class="col-sm-2 control-label">账户</label>
 		        		<div class="col-md-6">
@@ -97,7 +108,7 @@
 		        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-edit"></i> 注册</h4>
 		      </div>
 		      <div class="modal-body">
-		        <form action="" class="form-horizontal" method="post" id="registForm">
+		        <form action="/regist" class="form-horizontal" method="post" id="registForm">
 		        	<div class="form-group">
 		        		<label class="col-sm-2 control-label">账户</label>
 		        		<div class="col-md-6">
