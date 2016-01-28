@@ -24,7 +24,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(HttpServletRequest req,@RequestParam(required=false,defaultValue="")String userName,@RequestParam(required=false,defaultValue="")String password) {
-		if(StringUtils.isEmpty(userName)&&StringUtils.isEmpty(password)){
+		if(!StringUtils.isEmpty(userName) && !StringUtils.isEmpty(password)){
 			Account account = accountService.findByName(userName);
 			if(account != null && password.equals(account.getPassword())){
 				HttpSession session = req.getSession();

@@ -11,7 +11,6 @@
 		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
 		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="static/css/main.css"/>
-		<script src="static/js/holder.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			form .error{
 				color:red;
@@ -44,9 +43,17 @@
 				<ul class="nav navbar-nav navbar-right right1">
 					<li>
 						<c:if test="${sessionScope.login eq 'true' }">
-							<a href="javascript:;">
-								<i class="fa fa-user"></i>${sessionScope.userName}
-							</a>
+							<div class="dropdown">
+							  <button class="btn btn-default dropdown-toggle margin-top7px" type="button" id="personMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<i class="fa fa-user"></i>${sessionScope.userName}
+							  </button>
+							  <ul class="dropdown-menu lua" aria-labelledby="personMenu">
+							    <li><a href="javascript:;"> <i class="fa fa-user"></i> 个人中心</a></li>
+							    <li><a href="javascript:;"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+							    <li><a href="javascript:;"><i class="fa fa-sign-out"></i> 退出</a></li>
+							  </ul>
+							</div>
+								
 						</c:if>
 						<c:if test="${empty sessionScope.login }">
 							<a href="javascript:;" data-toggle="modal" data-target="#loginModal">
@@ -112,7 +119,7 @@
 		        	<div class="form-group">
 		        		<label class="col-sm-2 control-label">账户</label>
 		        		<div class="col-md-6">
-		        			<input type="text" class="form-control" placeholder="账户" name="userName"/>
+		        			<input type="text" id="userName" class="form-control" placeholder="账户" name="userName"/>
 		        		</div>
 		        	</div>
 		        	<div class="form-group">
@@ -228,7 +235,18 @@
 					errorClass:"error",
 					rules:{
 						userName:{
-							required:true
+							required:true,
+							remote:{
+								url:'/check/username',
+								type:'get',
+								dataType:'json',
+								data:{
+									userName:function() {
+										return $("#userName").val();
+									}
+								}
+								
+							}
 						},
 						password:{
 							required:true,
@@ -248,7 +266,8 @@
 					},
 					messages:{
 						userName:{
-							required:"用户名不能为空"
+							required:"用户名不能为空",
+							remote:"改用户名已被注册"
 						},
 						password:{
 							required:"密码不能为空",
@@ -266,6 +285,7 @@
 							isPhone:"请输入正确的手机号"
 						}
 					}
+					
 					
 					
 				});

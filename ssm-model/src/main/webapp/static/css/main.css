@@ -13,6 +13,9 @@ body{
 .navbar-default .navbar-nav  li  a {
 	color: white;
 }
+.navbar-default .navbar-nav .dropdown-menu li  a {
+	color: black;
+}
 .right1{
 	margin-right: 10px;
 }
@@ -30,6 +33,13 @@ body{
 }
 .zhanw{
 	margin-left:30px;
+}
+.margin-top7px{
+	margin-top: 7px;
+}
+.lua i{
+	font-size:21px;
+	color:#CC0066;
 }
 /*.navbar .container-fluid .navbar-brand {
 	margin-left: 30px;
