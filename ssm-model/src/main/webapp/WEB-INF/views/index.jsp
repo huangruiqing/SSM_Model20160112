@@ -13,5 +13,12 @@
 
 hhhhh:${message}
 
+<form action="/uplod" method="post" enctype="multipart/from-data">
+	<input type="text" name="docName"/>
+	<input type="file" name="doc"/>
+	<input type="submit" value="上传">
+</form>
+
+
 </body>
 </html>

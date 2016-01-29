@@ -29,6 +29,7 @@ public class LoginController {
 			if(account != null && password.equals(account.getPassword())){
 				HttpSession session = req.getSession();
 				session.setAttribute("login", "true");
+				session.setAttribute("account", account);
 				session.setAttribute("userName",account.getUserName());
 			}
 		}

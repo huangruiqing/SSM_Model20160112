@@ -48,9 +48,9 @@
 									<i class="fa fa-user"></i>${sessionScope.userName}
 							  </button>
 							  <ul class="dropdown-menu lua" aria-labelledby="personMenu">
-							    <li><a href="javascript:;"> <i class="fa fa-user"></i> 个人中心</a></li>
-							    <li><a href="javascript:;"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
-							    <li><a href="javascript:;"><i class="fa fa-sign-out"></i> 退出</a></li>
+							    <li><a href="/person"> <i class="fa fa-user"></i> 个人中心</a></li>
+							    <li><a href="/shopcar"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+							    <li><a href="/logout"><i class="fa fa-sign-out"></i> 退出</a></li>
 							  </ul>
 							</div>
 								
