@@ -11,14 +11,6 @@
 		<jsp:param value="index" name="meau"/>
 	</jsp:include>
 
-hhhhh:${message}
-
-<form action="/images/save" method="post" enctype="multipart/form-data">
-	<input type="text" name="docName"/>
-	<input type="file" name="doc"/>
-	<input type="submit" value="上传">
-</form>
-<h2>图片</h2>
 <img src="/images/show/?picUrl=c:/user/2.png" alt="" />
 </body>
 </html>

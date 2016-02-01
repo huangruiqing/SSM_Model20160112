@@ -1,7 +1,5 @@
 package com.dev.controller;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,13 +19,16 @@ public class ImageController {
 	private final static Logger logger =  LoggerFactory.getLogger(ImageController.class);
 	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public void save(String docName,MultipartFile doc) {
-		logger.debug("docName: {}",docName);
-		logger.debug("name: {}-- ",doc.getName());
-		logger.debug("originName:{}-- ",doc.getOriginalFilename());
-		logger.debug("szie: {}-- ",doc.getSize());
-		logger.debug("type: {}-- ",doc.getContentType());
-		logger.debug("class: {} --",doc.getClass());
+	public String save(String docName,MultipartFile doc) {
+		
+		String saveUrl="c:/user";
+		if(doc != null){
+			ImageUtils.savePic(saveUrl, doc,docName);
+		}else{
+			logger.debug("file ²»´æÔÚ");
+		}
+		return "redirect:/";
+		
 	}
 	
 	/**

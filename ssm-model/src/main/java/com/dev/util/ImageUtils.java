@@ -14,7 +14,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -29,17 +29,20 @@ public class ImageUtils {
 	
 	
 	
-	public static void savePic(String saveUrl,File file) {
+	public static void savePic(String saveUrl,MultipartFile doc,String docName) {
 		
+		String oldName = doc.getOriginalFilename();
+		String name = docName;
+		String type = doc.getContentType().substring(6);
 		try {
-			FileInputStream in = FileUtils.openInputStream(file);
-			FileOutputStream out = FileUtils.openOutputStream(new File(saveUrl));
+			FileInputStream in = (FileInputStream) doc.getInputStream();
+			FileOutputStream out = new FileOutputStream("c:/user/"+docName+"."+type);
 			IOUtils.copy(in, out);
 			out.flush();
 			out.close();
 			in.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			logger.debug("±£´æÍ¼Æ¬³ö´í£º"+name+"-->"+oldName);
 			e.printStackTrace();
 		}
 	}

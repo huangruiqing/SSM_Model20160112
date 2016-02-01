@@ -33,9 +33,14 @@ public class LoginController {
 				session.setAttribute("userName",account.getUserName());
 			}
 		}
-		return "redirect:index";
+		return "redirect:/";
 	}
 	
-	
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logOut(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 }
