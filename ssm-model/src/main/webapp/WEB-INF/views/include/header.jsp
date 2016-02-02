@@ -5,12 +5,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<!--为了确保适当的绘制和触屏缩放，需要在 <head> 之中添加 viewport 元数据标签。-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css"/>
 		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="static/css/main.css"/>
+		<link rel="shortcut icon" href="/static/img/favicon.ico" />
 		<style type="text/css">
 			form .error{
 				color:red;

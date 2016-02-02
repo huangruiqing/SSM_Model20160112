@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
 <script src="/static/js/holder.js"></script>
@@ -11,7 +12,7 @@
 	<jsp:include page="include/header.jsp">
 		<jsp:param value="index" name="meau"/>
 	</jsp:include>
-jjjj:${message },ll
+
 <div class="pic">
 <img data-src="holder.js/290x200?theme=sky">
 </div><div class="pic">
