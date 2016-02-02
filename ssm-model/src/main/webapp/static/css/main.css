@@ -1,3 +1,7 @@
+.pic{
+	float:left;
+	padding:5px;
+}
 body{
 	background:url(../img/bg.png);
 	margin: 0 auto;

@@ -5,12 +5,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>首页</title>
+<script src="/static/js/holder.js"></script>
 </head>
 <body>
 	<jsp:include page="include/header.jsp">
 		<jsp:param value="index" name="meau"/>
 	</jsp:include>
+jjjj:${message },ll
+<div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div><div class="pic">
+<img data-src="holder.js/290x200?theme=sky">
+</div>
 
-<img src="/images/show/?picUrl=c:/user/2.png" alt="" />
 </body>
 </html>
