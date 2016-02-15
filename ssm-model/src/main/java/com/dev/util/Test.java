@@ -25,7 +25,7 @@ public class Test {
 		System.out.println(list.length);
 		
 		
-		// 测试版本回退功能
+		// 娴嬭瘯鐗堟湰鎺у姛鑳藉埗鍥為��
 		
 		/*for (int i = 0; i < list.length; i++) {
 			System.out.println("ssss:"+list[i].getPath());
