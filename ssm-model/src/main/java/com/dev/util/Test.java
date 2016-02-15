@@ -25,7 +25,7 @@ public class Test {
 		System.out.println(list.length);
 		
 		
-		// 测试版本控功能制回退
+		// 测试版本控功能制回退123
 		
 		/*for (int i = 0; i < list.length; i++) {
 			System.out.println("ssss:"+list[i].getPath());
