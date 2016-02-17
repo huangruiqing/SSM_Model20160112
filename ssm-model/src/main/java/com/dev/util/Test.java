@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.filefilter.MagicNumberFileFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,9 +21,13 @@ public class Test {
 	public static void main(String[] args) {
 		
 	
-		File file = new File("e:/d/e/f");
+		double d = Math.pow(10, 1/2d);
+		System.out.println(d);
+		
+		
+		/*File file = new File("e:/d/e/f");
 		File[] list = file.listFiles();
-		System.out.println(list.length);
+		System.out.println(list.length);*/
 		
 		
 		// 测试版本控功能制回退123
