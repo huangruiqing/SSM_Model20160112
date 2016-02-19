@@ -25,17 +25,17 @@ public class ImageController {
 		if(doc != null){
 			ImageUtils.savePic(saveUrl, doc,docName);
 		}else{
-			logger.debug("file ²»´æÔÚ");
+			logger.debug("file å­˜æ”¾å¤±è´¥ï¼Œdoc == null");
 		}
 		return "redirect:/";
 		
 	}
 	
 	/**
-	 * »ñÈ¡Í¼Æ¬
+	 * æ˜¾ç¤ºå›¾ç‰‡
 	 * @param request
 	 * @param response
-	 * @param picUrl ´æ·ÅµØÖ·
+	 * @param picUrl å›¾ç‰‡å­˜æ”¾è·¯å¾„Ö·
 	 * @return
 	 */
 	@RequestMapping(value="/show/",method=RequestMethod.GET)
