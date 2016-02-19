@@ -4,5 +4,5 @@ import com.dev.entity.Image;
 
 public interface ImageMapper {
 	
-	public void save(Image image);
+	public void savePic(Image image);
 }

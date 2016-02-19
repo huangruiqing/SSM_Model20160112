@@ -40,7 +40,7 @@ public class ImageService {
 		if(doc != null){
 			boolean isSave = ImageUtils.savePic(saveUrl, doc,docName);
 			if(isSave){
-				imageDao.save(image);
+				imageDao.savePic(image);
 				return true;
 			}
 		}
