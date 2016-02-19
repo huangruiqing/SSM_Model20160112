@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Ìá¹©±£´æ£¬»ñÈ¡Í¼Æ¬
+ * å›¾ç‰‡å·¥å…·ç±»
  * @author Administrator
  *
  */
@@ -42,36 +42,36 @@ public class ImageUtils {
 			out.close();
 			in.close();
 		} catch (IOException e) {
-			logger.debug("±£´æÍ¼Æ¬³ö´í£º"+name+"-->"+oldName);
+			logger.debug("å›¾ç‰‡name:"+name+"-->"+oldName);
 			e.printStackTrace();
 		}
 	}
 	
 	
 	/**
-	 * getPic »ñÈ¡Í¼Æ¬
+	 * getPic è·å–å›¾ç‰‡
 	 * @param resopnse
 	 * @param request
-	 * @param picUrl Í¼Æ¬´æ·ÅÂ·¾¶
+	 * @param picUrl 
 	 * @return
 	 */
 	public static ModelAndView getImage(HttpServletResponse resopnse,HttpServletRequest request,String picUrl) {
 		
 		try {
 			FileInputStream in = FileUtils.openInputStream(new File(picUrl));
-			 int i=in.available(); //µÃµ½ÎÄ¼ş´óĞ¡   
+			 int i=in.available(); //å¾—åˆ°æ–‡ä»¶å¤§å°   
 		        byte data[]=new byte[i];   
-		        in.read(data);  //¶ÁÊı¾İ   
-		        resopnse.setContentType("image/*"); //ÉèÖÃ·µ»ØµÄÎÄ¼şÀàĞÍ   
-		        OutputStream toClient=resopnse.getOutputStream(); //µÃµ½Ïò¿Í»§¶ËÊä³ö¶ş½øÖÆÊı¾İµÄ¶ÔÏó   
-		        toClient.write(data);  //Êä³öÊı¾İ   
+		        in.read(data);  //è¯»æ•°æ®   
+		        resopnse.setContentType("image/*"); //è®¾ç½®è¿”å›çš„æ–‡ä»¶ç±»å‹   
+		        OutputStream toClient=resopnse.getOutputStream(); //å¾—åˆ°å‘å®¢æˆ·ç«¯è¾“å‡ºäºŒè¿›åˆ¶æ•°æ®çš„å¯¹è±¡   
+		        toClient.write(data);  //è¾“å‡ºæ•°æ®   
 		          
 		        toClient.flush();  
 		        toClient.close();   
 		        in.close();   
 		} catch (IOException e) {
 			e.printStackTrace();
-			logger.error("»ñÈ¡Í¼Æ¬Òì³£",e.getMessage());
+			logger.error("è·å–å›¾ç‰‡å¼‚å¸¸",e.getMessage());
 		}
 		return null;
 	}
