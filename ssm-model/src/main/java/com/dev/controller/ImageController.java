@@ -23,7 +23,10 @@ public class ImageController {
 		
 		String saveUrl="c:/user";
 		if(doc != null){
-			ImageUtils.savePic(saveUrl, doc,docName);
+			boolean isSave = ImageUtils.savePic(saveUrl, doc,docName);
+			if(isSave){
+				
+			}
 		}else{
 			logger.debug("file 存放失败，doc == null");
 		}

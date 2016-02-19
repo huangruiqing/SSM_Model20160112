@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 
 /**
  * 图片工具类
@@ -29,22 +32,27 @@ public class ImageUtils {
 	
 	
 	
-	public static void savePic(String saveUrl,MultipartFile doc,String docName) {
+	public static boolean savePic(String saveUrl,MultipartFile doc,String docName) {
 		
 		String oldName = doc.getOriginalFilename();
 		String name = docName;
 		String type = doc.getContentType().substring(6);
+		if(StringUtils.isEmpty(docName)){
+			docName = oldName;
+		}
 		try {
-			FileInputStream in = (FileInputStream) doc.getInputStream();
+			InputStream in =  doc.getInputStream();
 			FileOutputStream out = new FileOutputStream("c:/user/"+docName+"."+type);
 			IOUtils.copy(in, out);
 			out.flush();
 			out.close();
 			in.close();
+			return true;
 		} catch (IOException e) {
 			logger.debug("图片name:"+name+"-->"+oldName);
 			e.printStackTrace();
 		}
+		return false;
 	}
 	
 	

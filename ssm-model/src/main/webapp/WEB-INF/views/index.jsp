@@ -11,7 +11,8 @@
 <script src="/static/js/holder.js"></script>
 </head>
 <body>
-<c:import url="./include/header.jsp"/>
+<%-- <c:import url="./include/header.jsp"/> --%>
+
 <form action="/images/save" method="post" enctype="multipart/form-data">
 	<input type="text" name="docName"/>
 	<input type="file" name="doc"/>
