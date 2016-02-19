@@ -1,5 +1,6 @@
 package com.dev.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dev.service.ImageService;
+import com.dev.util.Constant;
 import com.dev.util.ImageUtils;
 
 @Controller
@@ -18,19 +22,24 @@ import com.dev.util.ImageUtils;
 public class ImageController {
 	private final static Logger logger =  LoggerFactory.getLogger(ImageController.class);
 	
+	@Inject
+	private ImageService imageService ;
+	
+	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String save(String docName,MultipartFile doc) {
+	public String save(HttpServletRequest request,String docName,MultipartFile doc,RedirectAttributes redirct) {
 		
-		String saveUrl="c:/user";
-		if(doc != null){
-			boolean isSave = ImageUtils.savePic(saveUrl, doc,docName);
+		if(doc != null) {
+			boolean isSave = imageService.save(docName,doc);
 			if(isSave){
-				
+				redirct.addFlashAttribute("message", Constant.IMG_SU_MESSAGE);
+			}else{
+				redirct.addFlashAttribute("message", Constant.IMG_FA_MESSAGE);
 			}
-		}else{
-			logger.debug("file 存放失败，doc == null");
+		} else{
+			redirct.addFlashAttribute("message", Constant.IMG_FA_MESSAGE);
 		}
-		return "redirect:/";
+		return "redirct:/";
 		
 	}
 	

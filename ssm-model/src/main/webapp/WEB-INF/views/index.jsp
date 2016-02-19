@@ -11,15 +11,41 @@
 <script src="/static/js/holder.js"></script>
 </head>
 <body>
-<%-- <c:import url="./include/header.jsp"/> --%>
+<%-- <c:import url="./include/header.jsp"/>  --%>
 
-<form action="/images/save" method="post" enctype="multipart/form-data">
+<form action="/images/save" method="post" id="uplodForm" enctype="multipart/form-data">
 	<input type="text" name="docName"/>
-	<input type="file" name="doc"/>
-	<button id="uplodBtn">上传</button>
+	<input type="file" name="doc" id="doc"/>
+	<input type="button" id="upload" value="上传"/>
 </form>
+<img src="" alt="" id="preview" />
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script>
+	$(function(){
+		
+		$("#upload").click(function() {
+			$("#uplodForm").submit();
+		});
+	   /*  $("#preview").hide();
+		
+		var doc = $("#doc").val();
+		$.ajax({
+			url:"/images/preShow",
+			data:doc,
+			type:"get",
+			success:function(data){
+				if(data !=""){
+					$("#preview").show;
+					$("#preview").attr("src",data);
+				}
+			}
+		});
+		 */
+		
+		
+	});
 
-<script src="/static/js/juqery-1.11.3.js"></script>
-<script src="/static/js/bootstarp.js"></script>
+</script>
 </body>
 </html>

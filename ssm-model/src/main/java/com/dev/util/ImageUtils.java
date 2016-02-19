@@ -7,15 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Administrator
  *
  */
-@Controller
+@Named
 public class ImageUtils {
 
 	private final static Logger logger =  LoggerFactory.getLogger(ImageUtils.class);
@@ -34,12 +33,10 @@ public class ImageUtils {
 	
 	public static boolean savePic(String saveUrl,MultipartFile doc,String docName) {
 		
-		String oldName = doc.getOriginalFilename();
+		
 		String name = docName;
 		String type = doc.getContentType().substring(6);
-		if(StringUtils.isEmpty(docName)){
-			docName = oldName;
-		}
+		
 		try {
 			InputStream in =  doc.getInputStream();
 			FileOutputStream out = new FileOutputStream("c:/user/"+docName+"."+type);
@@ -49,7 +46,7 @@ public class ImageUtils {
 			in.close();
 			return true;
 		} catch (IOException e) {
-			logger.debug("图片name:"+name+"-->"+oldName);
+			logger.error("图片name:"+name);
 			e.printStackTrace();
 		}
 		return false;
