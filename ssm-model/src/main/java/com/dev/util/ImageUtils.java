@@ -33,13 +33,11 @@ public class ImageUtils {
 	
 	public static boolean savePic(String saveUrl,MultipartFile doc,String docName) {
 		
-		
 		String name = docName;
-		String type = doc.getContentType().substring(6);
 		
 		try {
 			InputStream in =  doc.getInputStream();
-			FileOutputStream out = new FileOutputStream("c:/user/"+docName+"."+type);
+			FileOutputStream out = new FileOutputStream("c:/user/"+docName);
 			IOUtils.copy(in, out);
 			out.flush();
 			out.close();

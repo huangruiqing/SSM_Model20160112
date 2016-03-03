@@ -27,10 +27,10 @@ public class ImageController {
 	
 	
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String save(HttpServletRequest request,String docName,MultipartFile doc,RedirectAttributes redirct) {
+	public String save(MultipartFile doc,RedirectAttributes redirct) {
 		
 		if(doc != null) {
-			boolean isSave = imageService.save(docName,doc);
+			boolean isSave = imageService.save(doc);
 			if(isSave){
 				redirct.addFlashAttribute("message", Constant.IMG_SU_MESSAGE);
 			}else{
@@ -39,7 +39,7 @@ public class ImageController {
 		} else{
 			redirct.addFlashAttribute("message", Constant.IMG_FA_MESSAGE);
 		}
-		return "redirct:/";
+		return "redirect:/";
 		
 	}
 	

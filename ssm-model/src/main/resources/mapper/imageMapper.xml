@@ -5,7 +5,7 @@
 <mapper namespace="com.dev.dao.ImageMapper">
 	
 	<insert id="savePic" parameterType="Image" useGeneratedKeys="true" keyColumn="id">
-		insert into t_pic (picname,score,version,piclink) values(#{picname},#{score},#{version},${piclink})
+		insert into t_pic (picname,score,version,piclink) values(#{picname},#{score},#{version},#{piclink})
 	</insert>
 
 
